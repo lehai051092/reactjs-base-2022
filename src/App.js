@@ -5,11 +5,16 @@ import CounterFeature from "./features/Counter";
 import ColorBox from "./features/ColorBox";
 import PostFeature from "./features/Post";
 import ClockFeature from "./features/Clock";
+import MagicBoxFeature from "./features/MagicBox";
 
 function App() {
   return (
     <div className="App">
       <ClockFeature/>
+      <hr/>
+      <MagicBoxFeature/>
+      <hr/>
+      <PostFeature/>
       <hr/>
       {/*<TodoFeature/>*/}
       {/*<hr/>*/}
@@ -18,8 +23,6 @@ function App() {
       {/*<CounterFeature/>*/}
       {/*<hr/>*/}
       {/*<ColorBox/>*/}
-      {/*<hr/>*/}
-      <PostFeature/>
     </div>
   );
 }
