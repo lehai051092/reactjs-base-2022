@@ -4,10 +4,13 @@ import AlbumFeature from "./features/Album";
 import CounterFeature from "./features/Counter";
 import ColorBox from "./features/ColorBox";
 import PostFeature from "./features/Post";
+import ClockFeature from "./features/Clock";
 
 function App() {
   return (
     <div className="App">
+      <ClockFeature/>
+      <hr/>
       {/*<TodoFeature/>*/}
       {/*<hr/>*/}
       {/*<AlbumFeature/>*/}
