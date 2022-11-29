@@ -16,13 +16,13 @@ function App() {
       <hr/>
       <PostFeature/>
       <hr/>
-      {/*<TodoFeature/>*/}
-      {/*<hr/>*/}
-      {/*<AlbumFeature/>*/}
-      {/*<hr/>*/}
-      {/*<CounterFeature/>*/}
-      {/*<hr/>*/}
-      {/*<ColorBox/>*/}
+      <TodoFeature/>
+      <hr/>
+      <AlbumFeature/>
+      <hr/>
+      <CounterFeature/>
+      <hr/>
+      <ColorBox/>
     </div>
   );
 }
