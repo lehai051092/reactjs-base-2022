@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
 import PostListFeature from "./components/PostList";
 import Pagination from "./components/Pagination";
 import queryString from "query-string";
+import PostFilterForm from "./components/PostFilterForm";
 
 PostFeature.propTypes = {};
 
@@ -15,7 +15,8 @@ function PostFeature(props) {
   });
   const [getFilters, setFilters] = useState({
     _limit: 10,
-    _page: 1
+    _page: 1,
+    title_like: '',
   });
 
   useEffect(() => {
@@ -44,9 +45,18 @@ function PostFeature(props) {
     });
   };
 
+  const handleDataFilterForm = (filterData) => {
+    setFilters({
+      ...getFilters,
+      _page: 1,
+      title_like: filterData.searchTerm,
+    });
+  };
+
   return (
     <div>
       <h2>React hooks - PostList</h2>
+      <PostFilterForm onSubmitSearchForm={handleDataFilterForm}/>
       <PostListFeature postList={getPostList}/>
       <Pagination pagination={getPagination} onPageChange={handlePageChange}/>
     </div>
