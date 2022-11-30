@@ -5,7 +5,8 @@ import ColorBox from "./features/ColorBox";
 import PostFeature from "./features/Post";
 import ClockFeature from "./features/Clock";
 import MagicBoxFeature from "./features/MagicBox";
-import {NavLink, Route} from 'react-router-dom';
+import {NavLink, Route, Switch, Redirect} from 'react-router-dom';
+import HomeFeature from "./features/Home";
 
 function App() {
   return (
@@ -21,14 +22,18 @@ function App() {
         <p><NavLink to="/color-box">Color Box</NavLink></p>
       </div>
 
-      <Route path="/clock" component={ClockFeature}/>
-      <Route path="/magic-box" component={MagicBoxFeature}/>
-      <Route path="/post" component={PostFeature}/>
-      <Route path="/todo-list" component={TodoFeature}/>
-      <Route path="/albums" component={AlbumFeature}/>
-      <Route path="/counter" component={CounterFeature}/>
-      <Route path="/color-box" component={ColorBox}/>
+      <Switch>
+        <Redirect from="/home" to="/" />
 
+        <Route path="/" component={HomeFeature} exact/>
+        <Route path="/clock" component={ClockFeature}/>
+        <Route path="/magic-box" component={MagicBoxFeature}/>
+        <Route path="/post" component={PostFeature}/>
+        <Route path="/todo-list" component={TodoFeature}/>
+        <Route path="/albums" component={AlbumFeature}/>
+        <Route path="/counter" component={CounterFeature}/>
+        <Route path="/color-box" component={ColorBox}/>
+      </Switch>
       <div>
         Footer
       </div>
