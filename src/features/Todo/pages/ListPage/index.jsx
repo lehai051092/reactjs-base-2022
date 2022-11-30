@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useLocation, useHistory, useRouteMatch} from 'react-router-dom';
 import TodoListFeature from "../../components/TodoList";
 import FilterStatus from "../../components/FilterStatus";
 import TodoForm from "../../components/TodoForm";
@@ -27,12 +27,18 @@ function TodoListPage(props) {
   ];
 
   const location = useLocation();
+  const history = useHistory();
+  const match = useRouteMatch();
   const [getTodoList, setTodoList] = useState(todoList);
   const [getFilterStatus, setFilterStatus] = useState(() => {
     const params = queryString.parse(location.search);
-
     return params.status || 'all';
   });
+
+  useEffect(() => {
+    const params = queryString.parse(location.search);
+    setFilterStatus(params.status || 'all');
+  }, [location.search]);
 
   const handleTodoClick = (todo) => {
     // clone new todo list
@@ -49,7 +55,11 @@ function TodoListPage(props) {
   }
 
   const handleFilterStatus = (value) => {
-    setFilterStatus(value);
+    const queryParams = {status: value};
+    history.push({
+      pathname: match.path,
+      search: queryString.stringify(queryParams),
+    });
   }
 
   const getRenderTodoList = getTodoList.filter((todo) => getFilterStatus === 'all' || getFilterStatus === todo.status);
