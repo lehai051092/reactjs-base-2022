@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import {useLocation} from 'react-router-dom';
 import TodoListFeature from "../../components/TodoList";
 import FilterStatus from "../../components/FilterStatus";
 import TodoForm from "../../components/TodoForm";
+import queryString from 'query-string';
 
 TodoListPage.propTypes = {};
 
@@ -25,8 +26,13 @@ function TodoListPage(props) {
     }
   ];
 
+  const location = useLocation();
   const [getTodoList, setTodoList] = useState(todoList);
-  const [getFilterStatus, setFilterStatus] = useState('all');
+  const [getFilterStatus, setFilterStatus] = useState(() => {
+    const params = queryString.parse(location.search);
+
+    return params.status || 'all';
+  });
 
   const handleTodoClick = (todo) => {
     // clone new todo list
