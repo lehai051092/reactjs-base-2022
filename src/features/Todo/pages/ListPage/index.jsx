@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import TodoListFeature from "./components/TodoList";
-import FilterStatus from "./components/FilterStatus";
-import TodoForm from "./components/TodoForm";
+import TodoListFeature from "../../components/TodoList";
+import FilterStatus from "../../components/FilterStatus";
+import TodoForm from "../../components/TodoForm";
 
-TodoFeature.propTypes = {};
+TodoListPage.propTypes = {};
 
-function TodoFeature(props) {
+function TodoListPage(props) {
   const todoList = [
     {
       id: 1,
@@ -81,4 +81,4 @@ function TodoFeature(props) {
   );
 }
 
-export default TodoFeature;
+export default TodoListPage;

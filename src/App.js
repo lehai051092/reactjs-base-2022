@@ -1,4 +1,4 @@
-import TodoFeature from "./features/Todo";
+import TodoFeature from "./features/Todo/pages";
 import AlbumFeature from "./features/Album";
 import CounterFeature from "./features/Counter";
 import ColorBox from "./features/ColorBox";
@@ -7,6 +7,7 @@ import ClockFeature from "./features/Clock";
 import MagicBoxFeature from "./features/MagicBox";
 import {NavLink, Route, Switch, Redirect} from 'react-router-dom';
 import HomeFeature from "./features/Home";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/albums" component={AlbumFeature}/>
         <Route path="/counter" component={CounterFeature}/>
         <Route path="/color-box" component={ColorBox}/>
+
+        <Route component={NotFound}/>
       </Switch>
       <div>
         Footer
