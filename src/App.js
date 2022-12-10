@@ -24,7 +24,7 @@ function App() {
       </div>
 
       <Switch>
-        <Redirect from="/home" to="/" />
+        <Redirect from="/home" to="/"/>
 
         <Route path="/" component={HomeFeature} exact/>
         <Route path="/clock" component={ClockFeature}/>
