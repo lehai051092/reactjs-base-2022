@@ -8,8 +8,22 @@ import MagicBoxFeature from "./features/MagicBox";
 import {NavLink, Route, Switch, Redirect} from 'react-router-dom';
 import HomeFeature from "./features/Home";
 import NotFound from "./components/NotFound";
+import {useEffect} from "react";
+import productApi from "./api/productApi";
 
 function App() {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const params = {
+        _limit: 10,
+      };
+      const products = await productApi.getAll(params);
+      console.log(products);
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <div className="App">
       <div>
