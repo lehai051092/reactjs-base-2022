@@ -1,18 +1,28 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {decrease, increase} from "./counterSlice";
 
-CounterFeature.propTypes = {
-
-};
+CounterFeature.propTypes = {};
 
 function CounterFeature(props) {
-  const [getCount, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const count = useSelector(state => state.counter);
+
+  const handleIncreaseClick = () => {
+    dispatch(increase());
+  };
+
+  const handleDecreaseClick = () => {
+    dispatch(decrease());
+  };
 
   return (
     <div>
-      <h2>Counter</h2>
-      {getCount}
-      <button onClick={() => {setCount(x => x + 1)}}>Increase</button>
+      <h2>Counter Redux {count}</h2>
+      <div>
+        <button onClick={handleIncreaseClick}>Increase</button>
+        <button onClick={handleDecreaseClick}>Decrease</button>
+      </div>
     </div>
   );
 }
