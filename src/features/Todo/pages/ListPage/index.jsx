@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useHistory, useRouteMatch} from 'react-router-dom';
+import {useHistory, useLocation, useRouteMatch} from 'react-router-dom';
 import TodoListFeature from "../../components/TodoList";
-import FilterStatus from "../../components/FilterStatus";
 import TodoForm from "../../components/TodoForm";
 import queryString from 'query-string';
+import TodoFilterStatus from "../../components/TodoFilterStatus";
 
 TodoListPage.propTypes = {};
 
@@ -91,7 +91,7 @@ function TodoListPage(props) {
     <div>
       <h2>Todo List</h2>
       <TodoForm onFormSubmit={handleFormSubmit}/>
-      <FilterStatus onFilterChange={handleFilterStatus}/>
+      <TodoFilterStatus onFilterChange={handleFilterStatus}/>
       <TodoListFeature todoList={getRenderTodoList} onTodoClick={handleTodoClick} onTodoRemove={handleTodoRemove}/>
     </div>
   );

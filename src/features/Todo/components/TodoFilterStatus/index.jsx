@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-FilterStatus.propTypes = {
+TodoFilterStatus.propTypes = {
   onFilterChange: PropTypes.func,
 };
 
-FilterStatus.defaultProps = {
+TodoFilterStatus.defaultProps = {
   onFilterChange: null,
 };
 
-function FilterStatus({onFilterChange}) {
+function TodoFilterStatus({onFilterChange}) {
   const options = [
     {
       id: 1,
@@ -45,4 +45,4 @@ function FilterStatus({onFilterChange}) {
   );
 }
 
-export default FilterStatus;
+export default TodoFilterStatus;
